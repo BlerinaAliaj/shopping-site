@@ -83,13 +83,14 @@ def show_shopping_cart():
     melon_sum = 0
 
     if cart:
-        for melon in cart:
-            melon_obj = melons.get_by_id(melon)
-            qty = session['cart'][melon]
-            price = format(melon_obj.price, '.2f')
-            total = format(qty * float(price), '.2f')
-            melon_sum += float(total)
-            cart_list.append([melon_obj.common_name, qty, price, total])
+        for melon_id in cart:
+            melon_obj = melons.get_by_id(melon_id)
+            melon_obj.qty = session['cart'][melon_id]
+            total = melon_obj.qty * melon_obj.price
+            melon_obj.formatted_price = format(melon_obj.price, '.2f')
+            melon_obj.total_str = format(total, '.2f')
+            melon_sum += total
+            cart_list.append(melon_obj)
     else:
         flash("There are no items in your cart!!! Order NOW!!!")
     print cart_list
