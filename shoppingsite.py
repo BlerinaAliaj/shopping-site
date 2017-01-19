@@ -11,7 +11,7 @@ from flask import Flask, render_template, redirect, flash, session
 import jinja2
 
 import melons
-
+import customers
 
 app = Flask(__name__)
 
