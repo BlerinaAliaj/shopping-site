@@ -87,7 +87,6 @@ def show_shopping_cart():
             melon_obj = melons.get_by_id(melon_id)
             melon_obj.qty = session['cart'][melon_id]
             total = melon_obj.qty * melon_obj.price
-            melon_obj.formatted_price = format(melon_obj.price, '.2f')
             melon_obj.total_str = format(total, '.2f')
             melon_sum += total
             cart_list.append(melon_obj)

@@ -19,7 +19,7 @@
                 <tr>
                     <td>{{ melon.common_name }}</td>
                     <td>{{ melon.qty }}</td>
-                    <td>${{ melon.formatted_price }}</td>
+                    <td>{{ melon.price_str() }}</td>
                     <td>${{ melon.total_str }}</td>
                 </tr>
             {% endfor %}
